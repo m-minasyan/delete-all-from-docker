@@ -1,5 +1,5 @@
 sudo docker ps -aq | xargs sudo docker stop | xargs sudo docker rm -f
-# Delete all images exept node, nginx
+# Delete all images exept starting with node, nginx
 sudo docker images -a | grep -v '^node' | grep -v '^nginx' | awk 'NR>1 {print $3}' | xargs sudo docker image rm -f
 sudo docker volume ls -qf | xargs sudo docker volume rm -f
 sudo service docker stop
